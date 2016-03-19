@@ -1,0 +1,11 @@
+name: cryesql
+version: 0.1.0
+
+authors:
+  - Santiago Palladino <spalladino@gmail.com>
+
+license: MIT
+
+dependencies:
+  db:
+    github: bcardiff/crystal-db

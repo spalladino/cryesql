@@ -1,0 +1,2 @@
+module Cryesql
+end
