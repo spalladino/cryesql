@@ -1,5 +1,7 @@
 # cryesql
 
+[![Build Status](https://travis-ci.org/spalladino/cryesql.svg?branch=master)](https://travis-ci.org/spalladino/cryesql)
+
 Port of Clojure [yesql](https://github.com/krisajenkins/yesql) to Crystal.
 
 **Work in progress**
