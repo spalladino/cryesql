@@ -1,4 +1,5 @@
 require "yaml"
+require "./query"
 
 module Cryesql
 
@@ -12,12 +13,8 @@ module Cryesql
       @current_state = :header
     end
 
-    private def close_query
-      header_string = @current_header.to_s
-      header = YAML.parse(header_string)
-      name = header["name"].as_s.strip
-      body = @current_body.to_s.strip
-      @queries.push(Query.new(name, body))
+    def self.parse_path(path)
+      Parser.new(File.read(path)).parse
     end
 
     def parse
@@ -47,6 +44,14 @@ module Cryesql
       # Close the last query when we reach the end
       close_query
       return @queries
+    end
+
+    private def close_query
+      header_string = @current_header.to_s
+      header = YAML.parse(header_string)
+      name = header["name"].as_s.strip
+      body = @current_body.to_s.strip
+      @queries.push(Query.new(name, body))
     end
 
   end

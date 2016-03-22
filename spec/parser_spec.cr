@@ -90,4 +90,10 @@ describe Cryesql::Parser do
     queries[1].body.should eq("SELECT *\nFROM another")
   end
 
+  it "should parse path" do
+    queries = Cryesql::Parser.parse_path("#{__DIR__}/examples/selects.sql")
+    queries.size.should eq(2)
+    queries.map(&.name).should eq(["foo", "bar"])
+  end
+
 end
