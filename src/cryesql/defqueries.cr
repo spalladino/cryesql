@@ -1,3 +1,3 @@
-macro def_queries(path)
-  \{{ run("{{__DIR__.id}}/run/generate", {{path}}) }}
+macro def_queries(path, database)
+  \{{ run("{{__DIR__.id}}/run/generate", {{path}}, "{{database.id}}") }}
 end

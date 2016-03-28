@@ -9,3 +9,8 @@ license: MIT
 dependencies:
   db:
     github: bcardiff/crystal-db
+
+development_dependencies:
+  sqlite3:
+    github: bcardiff/crystal-sqlite3
+    branch: db

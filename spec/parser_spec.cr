@@ -93,7 +93,7 @@ describe Cryesql::Parser do
   it "should parse path" do
     queries = Cryesql::Parser.parse_path("#{__DIR__}/examples/selects.sql")
     queries.size.should eq(2)
-    queries.map(&.name).should eq(["foo", "bar"])
+    queries.map(&.name).should eq(["select_users", "select_projects"])
   end
 
 end

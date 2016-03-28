@@ -1,7 +1,7 @@
--- name: foo
-SELECT * FROM foo
+-- name: select_users
+SELECT * FROM users
 
--- name: bar
+-- name: select_projects
 SELECT *
-FROM bar
+FROM projects
 WHERE 1=1
