@@ -6,6 +6,6 @@ Cryesql::Parser.parse_path(ARGV[0]).each do |query|
       body = "#{query.body}"
       #{ARGV[1]}.query(body)
     end
-    
+
   CRYSTAL
 end
