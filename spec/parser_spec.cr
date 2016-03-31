@@ -90,6 +90,24 @@ describe Cryesql::Parser do
     queries[1].body.should eq("SELECT *\nFROM another")
   end
 
+  it "should parse parameters definitions" do
+    str = <<-QUERY
+    -- name: foobar
+    -- params:
+    --   foo: Int32
+    --   bar: String
+    SELECT *
+    FROM foobar
+    WHERE ?=?
+    QUERY
+
+    queries = Cryesql::Parser.new(MemoryIO.new(str)).parse
+    queries.size.should eq(1)
+    queries[0].name.should eq("foobar")
+    queries[0].params.should eq([Cryesql::Query::Param.new("foo", "Int32"), Cryesql::Query::Param.new("bar", "String")])
+    queries[0].body.should eq("SELECT *\nFROM foobar\nWHERE ?=?")
+  end
+
   it "should parse path" do
     queries = Cryesql::Parser.parse_path("#{__DIR__}/examples/selects.sql")
     queries.size.should eq(2)

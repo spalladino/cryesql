@@ -4,13 +4,13 @@ WHERE age > ?
 
 -- name: select_users_younger_than
 -- params:
--- - age: Int32
+--   age: Int32
 SELECT * FROM users
 WHERE age < ?
 
 -- name: select_users_aged_between
 -- params:
--- - lb: Int32
--- - ub: Int32
+--   lb: Int32
+--   ub: String
 SELECT * FROM users
 WHERE age > ? AND age < ?
